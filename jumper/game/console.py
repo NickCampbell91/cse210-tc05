@@ -42,7 +42,7 @@ class Console:
         """
         print(*text)
         
-   def picture(self, text_art):
+    def picture(self, text_art):
         """Displays the given text art on the screen. 
 
         Args: 
