@@ -48,8 +48,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        display_word = self.word.board
-        self.console.write(display_word)
+        display_board = self.word.board
+        self.console.write(display_board)
         print()
         display_parachute = self.jumper.draw_parachute(self.lives)
         self.console.picture(display_parachute)
