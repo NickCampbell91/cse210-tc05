@@ -1,3 +1,5 @@
+import random
+
 class Word:
     """A code template for the correct word and the blanks. The responsibility
     of this class of objects is to test the inputs of the user and update
@@ -16,8 +18,21 @@ class Word:
         Args:
             self.word and instance of word.
         """
-        self.answer = ["j", "a", "z", "z"]
-        self.board = ["_", "_", "_", "_"]
+        # self.answer = ["j", "a", "z", "z"]
+        # self.board = ["_", "_", "_", "_"]
+
+        with open("wordlist.10000.txt") as wordlist:
+            words = wordlist.read()
+            words = words.splitlines()
+            for word in words:
+                self.answer = random.choice(words)
+                count = len(self.answer)
+                self.board = []
+                placeholder = "_"
+                self.board.extend(placeholder * count)
+        
+        # print(self.answer, count, self.board)
+
         self.wrong_guesses = []
 
     def update_word(self, letter):
@@ -41,3 +56,5 @@ class Word:
         if letter not in self.answer:
             self.wrong_guesses.append(letter)
             return True
+
+# Word()
