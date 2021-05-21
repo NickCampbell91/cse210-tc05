@@ -82,3 +82,9 @@ class Director:
         trash = self.word.wrong_guesses
         self.console.write(trash)
         self.keep_playing = self.lives > 0
+        if self.lives == 0:
+            display_parachute = self.jumper.draw_parachute(self.lives)
+            self.console.picture(display_parachute)
+            display_jumper = self.jumper.draw_jumper(self.lives)
+            self.console.picture(display_jumper)
+            print("You, you killed him. Sweet motherboard, there are 1s and 0s everywhere!")
