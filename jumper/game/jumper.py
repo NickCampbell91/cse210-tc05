@@ -58,7 +58,7 @@ class Jumper:
             lives (integer): The number of lives remaining.
         """
         if lives > 0:
-            self.jumper[0] = "     0      "
+            self.jumper[0] = "     o      "
             self.jumper[1] = "    /|\     "
             self.jumper[2] = "    / \     "
             self.jumper[3] = "            "
@@ -68,11 +68,26 @@ class Jumper:
             self.jumper[1] = "            "
             self.jumper[2] = "            "
             self.jumper[3] = "            "
-            self.jumper[4] = "^^^^>-o^^^^^"
+            self.jumper[4] = "^^^^>->o^^^^"
         
         jumper = self.jumper
 
         return jumper
+    
+    def draw_winner(self):
+        """Displays the jumper safely landed on the ground.
+
+        Args:
+            self (Jumper): An instance of Jumper.
+        """
+        happy_jumper = ["", "", "", "", ""]
+        happy_jumper[0] = "            "
+        happy_jumper[1] = "            "
+        happy_jumper[2] = "    \o/     "
+        happy_jumper[3] = "     |      "
+        happy_jumper[4] = "^^^^/ \^^^^^"
+
+        return happy_jumper
 
 def test():
     """
