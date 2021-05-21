@@ -35,7 +35,6 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        #print(self.jumper.parachute)
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
