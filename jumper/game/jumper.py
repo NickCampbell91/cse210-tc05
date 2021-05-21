@@ -30,12 +30,20 @@ class Jumper:
         """
         if lives > 3:
             self.parachute[0] = "    ____    "
+        else:
+            self.parachute[0] = ""
         if lives > 2:
             self.parachute[1] = "   /____\   "
+        else:
+            self.parachute[1] = ""
         if lives > 1:
             self.parachute[2] = "   \    /   "
+        else:
+            self.parachute[2] = ""
         if lives > 0:
             self.parachute[3] = "    \  /    "
+        else:
+            self.parachute[3] = ""
 
         parachute = self.parachute
 

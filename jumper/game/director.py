@@ -28,6 +28,7 @@ class Director:
         self.word = Word()
         self.keep_playing = True
         self.lives = 4
+        self.current_guess = ""
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -57,7 +58,7 @@ class Director:
         print()
         letter = self.console.read_letter("Guess a letter [a-z]: ")
         self.word.update_word(letter)
-        
+        self.current_guess = letter
         
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -66,9 +67,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self.word.wrong_letter():
+        if self.word.wrong_letter(self.current_guess):
             self.lives -= 1
-
+        print(self.lives)
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
