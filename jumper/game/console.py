@@ -40,7 +40,7 @@ class Console:
             self (Screen): An instance of Screen.
             text (string): The text to display.
         """
-        print(text)
+        print(*text)
         
    def picture(self, text_art):
         """Displays the given text art on the screen. 
