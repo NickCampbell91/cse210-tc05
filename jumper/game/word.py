@@ -30,9 +30,7 @@ class Word:
             self (Word): An instance of Word
             letter (char): The input of the user.
         """
-        pass
-
-    
-
-    
-
+        # while letter in self.answer:
+        for i in range(self.answer):
+            if self.answer == letter:
+                self.board[i] = letter

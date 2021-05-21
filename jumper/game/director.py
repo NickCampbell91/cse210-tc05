@@ -56,7 +56,7 @@ class Director:
         self.console.picture(display_jumper)
         print()
         letter = self.console.read_letter("Guess a letter [a-z]: ")
-        #self.word.update_word(letter)
+        self.word.update_word(letter)
         
         
     def do_updates(self):
