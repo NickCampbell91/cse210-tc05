@@ -21,6 +21,13 @@ class Jumper:
         self.jumper = ["", "", "", "", ""]
     
     def draw_parachute(self, lives):
+        """Displays the various levels of the parachute depending on the 
+        number of lives remaining.
+
+        Args:
+            self (Jumper): An instance of Jumper.
+            lives (integer): The number of lives remaining.
+        """
         if lives > 3:
             self.parachute[0] = "    ____    "
         if lives > 2:
@@ -35,6 +42,13 @@ class Jumper:
         return parachute
 
     def draw_jumper(self, lives):
+        """Displays the jumper, alive or not so mmuch, depending on the 
+        number of lives remaining.
+
+        Args:
+            self (Jumper): An instance of Jumper.
+            lives (integer): The number of lives remaining.
+        """
         if lives > 0:
             self.jumper[0] = "     0      "
             self.jumper[1] = "    /|\     "
@@ -53,6 +67,9 @@ class Jumper:
         return jumper
 
 def test():
+    """
+    A function only used for testing purposes.
+    """
     jumper = Jumper()
     lives = 0
     display = jumper.draw_parachute(lives)
