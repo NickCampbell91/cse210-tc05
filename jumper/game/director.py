@@ -1,6 +1,7 @@
 from game.console import Console
 from game.jumper import Jumper
 from game.word import Word
+import time
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -55,6 +56,8 @@ class Director:
         self.console.picture(display_parachute)
         display_jumper = self.jumper.draw_jumper(self.lives)
         self.console.picture(display_jumper)
+        trash = self.word.wrong_guesses
+        self.console.write(trash)
         print()
         letter = self.console.read_letter("Guess a letter [a-z]: ")
         self.word.update_word(letter)
@@ -73,23 +76,32 @@ class Director:
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
-        this case, that means the wrong guesses are displayed.
+        this case, that means the wrong guesses are displayed and win/lose
+        events.
 
         Args:
             self (Director): An instance of Director.
         """
-        trash = self.word.wrong_guesses
-        self.console.write(trash)
         self.keep_playing = self.lives > 0 and self.word.answer != self.word.board
         if self.lives == 0:
             display_parachute = self.jumper.draw_parachute(self.lives)
             self.console.picture(display_parachute)
             display_jumper = self.jumper.draw_jumper(self.lives)
             self.console.picture(display_jumper)
-            print("You, you killed him. Sweet motherboard, there are 1s and 0s everywhere!")
+            self.console.print_slow("You, ")
+            time.sleep(0.3)
+            self.console.print_slow("you killed him. ")
+            time.sleep(0.3)
+            self.console.print_slow("Sweet motherboard, ")
+            time.sleep(0.3)
+            self.console.print_slow("there are 1s and 0s everywhere!!!")
         if self.word.answer == self.word.board:
             display_board = self.word.board
             self.console.write(display_board)
             display_jumper = self.jumper.draw_winner()
             self.console.picture(display_jumper)
-            print("He's alive! All hail the word nerd! Protector of skydiving stick figures!")
+            self.console.print_fast("He's alive! ")
+            time.sleep(0.3)
+            self.console.print_fast("All hail the word nerd! ")
+            time.sleep(0.3)
+            self.console.print_fast("Protector of skydiving stick figures!")
