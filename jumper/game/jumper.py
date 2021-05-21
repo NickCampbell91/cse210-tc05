@@ -7,27 +7,57 @@ class Jumper:
         Information Holder
 
     Attributes:
-        answer (list of strings): The location of each correct letter.
+        parachute (list of strings): The visual representation of the lives remaining.
         board (list of strings): The game board holding the blanks and correctly
         guessed letters.
-        wrong_guesses (list of strings): The guessed letters not found in answer.
-
     """
     def __init__(self):
-        self.parachute = []
-        self.jumper = []
+        """The class constructor.
+        
+        Args:
+            self (Jumper): an instance of Jumper.
+        """
+        self.parachute = ["", "", "", ""]
+        self.jumper = ["", "", "", "", ""]
+    
+    def draw_parachute(self, lives):
+        if lives > 3:
+            self.parachute[0] = "    ____    "
+        if lives > 2:
+            self.parachute[1] = "   /____\   "
+        if lives > 1:
+            self.parachute[2] = "   \    /   "
+        if lives > 0:
+            self.parachute[3] = "    \  /    "
 
-    def parachute(self, lives):
-        self.parachute[0] = "    ____    "
-        self.parachute[1] = "   /____\   "
-        self.parachute[2] = "   \    /   "
-        self.parachute[3] = "    \  /    "
+        parachute = self.parachute
 
-        if lives == 4:
-            return self.parachute[0,1,2,3]
+        return parachute
 
-    def jumper(self, lives):
-        pass
+    def draw_jumper(self, lives):
+        if lives > 0:
+            self.jumper[0] = "     0      "
+            self.jumper[1] = "    /|\     "
+            self.jumper[2] = "    / \     "
+            self.jumper[3] = "            "
+            self.jumper[4] = "^^^^^^^^^^^^"
+        else:
+            self.jumper[0] = "            "
+            self.jumper[1] = "            "
+            self.jumper[2] = "            "
+            self.jumper[3] = "            "
+            self.jumper[4] = "^^^^>-o^^^^^"
+        
+        jumper = self.jumper
 
-jumper = Jumper()
-print(jumper.parachute(4))
+        return jumper
+
+def test():
+    jumper = Jumper()
+    lives = 0
+    display = jumper.draw_parachute(lives)
+    print(*display, sep = "\n")
+    other_display = jumper.draw_jumper(lives)
+    print(*other_display, sep = "\n")
+
+#test()
