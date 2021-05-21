@@ -87,3 +87,5 @@ class Director:
             display_jumper = self.jumper.draw_jumper(self.lives)
             self.console.picture(display_jumper)
             print("You, you killed him. Sweet motherboard, there are 1s and 0s everywhere!")
+
+        #yo
