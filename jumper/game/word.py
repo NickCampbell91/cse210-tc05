@@ -34,3 +34,8 @@ class Word:
         for i in range(self.answer):
             if self.answer == letter:
                 self.board[i] = letter
+
+    def wrong_letter(self, letter):
+        if letter not in self.answer:
+            self.wrong_guesses.append(letter)
+            return True

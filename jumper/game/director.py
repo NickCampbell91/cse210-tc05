@@ -66,8 +66,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self.word.update_word():
-            
+        if self.word.wrong_letter():
             self.lives -= 1
 
         
