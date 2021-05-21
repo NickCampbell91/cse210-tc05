@@ -1,3 +1,5 @@
+import sys,time
+
 class Console:
     """A code template for a computer console. The responsibility of this 
     class of objects is to get text or numerical input and display text output.
@@ -50,3 +52,29 @@ class Console:
             text_art (list): The text art to display.
         """
         print(*text_art, sep = "\n")
+
+    def print_slow(self, str):
+        """Slow the text to give the impression of speaking. 
+
+        Args: 
+            self (Screen): An instance of Screen.
+            str (string): The text to display.
+        """
+        for letter in str:
+            sys.stdout.write(letter) #types the letter
+            sys.stdout.flush() #clears the internal buffer
+            time.sleep(0.1) #creates delay between letters
+        #print() #without this everything is printed on the same line
+
+    def print_fast(self, str):
+        """Somewhat slow the text to give the impression of speaking. 
+
+        Args: 
+            self (Screen): An instance of Screen.
+            str (string): The text to display.
+        """
+        for letter in str:
+            sys.stdout.write(letter) #types the letter
+            sys.stdout.flush() #clears the internal buffer
+            time.sleep(0.04) #creates delay between letters
+        #print() #without this everything is printed on the same line
