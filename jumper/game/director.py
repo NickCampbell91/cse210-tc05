@@ -69,7 +69,7 @@ class Director:
         """
         if self.word.wrong_letter(self.current_guess):
             self.lives -= 1
-        print(self.lives)
+        #print(self.lives)
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
