@@ -33,4 +33,7 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add your name and email
-* Nick Campbell cam12044@byui.edu
+* Nick Campbell - cam12044@byui.edu
+* Kathleen Ledesma - kat_joone@yahoo.com 
+* Erik Machuca Saez - mac19024@byui.edu 
+* Kouadio Kouao - kou15002@byui.edu
