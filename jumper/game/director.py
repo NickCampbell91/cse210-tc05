@@ -28,6 +28,7 @@ class Director:
         self.word = Word()
         self.keep_playing = True
         self.lives = 4
+        self.current_guess = ""
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -35,7 +36,6 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        #print(self.jumper.parachute)
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -48,15 +48,17 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        display_word = self.word.board
-        self.console.write(display_word)
+        display_board = self.word.board
+        self.console.write(display_board)
         print()
-        display_parachute = self.jumper.parachute(lives)
-        self.console.write(display_parachute)
+        display_parachute = self.jumper.draw_parachute(self.lives)
+        self.console.picture(display_parachute)
+        display_jumper = self.jumper.draw_jumper(self.lives)
+        self.console.picture(display_jumper)
         print()
         letter = self.console.read_letter("Guess a letter [a-z]: ")
-        #self.word.track_word(letter)
-        
+        self.word.update_word(letter)
+        self.current_guess = letter
         
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -65,12 +67,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self.word.update_word():
-            
+        if self.word.wrong_letter(self.current_guess):
             self.lives -= 1
-
-        self.jumper.update_lives()
-
+        #print(self.lives)
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -82,3 +81,11 @@ class Director:
         trash = self.word.wrong_guesses
         self.console.write(trash)
         self.keep_playing = self.lives > 0
+        if self.lives == 0:
+            display_parachute = self.jumper.draw_parachute(self.lives)
+            self.console.picture(display_parachute)
+            display_jumper = self.jumper.draw_jumper(self.lives)
+            self.console.picture(display_jumper)
+            print("You, you killed him. Sweet motherboard, there are 1s and 0s everywhere!")
+
+        #yo

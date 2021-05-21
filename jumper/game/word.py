@@ -5,17 +5,14 @@ class Word:
     
     Stereotype:
         Information Holder
-
     Attributes:
         answer (list of strings): The location of each correct letter.
         board (list of strings): The game board holding the blanks and correctly
         guessed letters.
         wrong_guesses (list of strings): The guessed letters not found in answer.
-
     """
     def __init__(self):
         """The class constructor.
-
         Args:
             self.word and instance of word.
         """
@@ -25,14 +22,16 @@ class Word:
 
     def update_word(self, letter):
         """Update the input of the user and update the board accordingly.
-
         Args:
             self (Word): An instance of Word
             letter (char): The input of the user.
         """
-        pass
+        # while letter in self.answer:
+        for i in range(len(self.answer)):
+            if self.answer[i] == letter:
+                self.board[i] = letter
 
-    
-
-    
-
+    def wrong_letter(self, letter):
+        if letter not in self.answer:
+            self.wrong_guesses.append(letter)
+            return True
