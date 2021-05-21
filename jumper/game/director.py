@@ -51,11 +51,13 @@ class Director:
         display_word = self.word.board
         self.console.write(display_word)
         print()
-        display_parachute = self.jumper.parachute(lives)
-        self.console.write(display_parachute)
+        display_parachute = self.jumper.draw_parachute(self.lives)
+        self.console.picture(display_parachute)
+        display_jumper = self.jumper.draw_jumper(self.lives)
+        self.console.picture(display_jumper)
         print()
         letter = self.console.read_letter("Guess a letter [a-z]: ")
-        #self.word.track_word(letter)
+        #self.word.update_word(letter)
         
         
     def do_updates(self):
@@ -68,8 +70,6 @@ class Director:
         if self.word.update_word():
             
             self.lives -= 1
-
-        self.jumper.update_lives()
 
         
     def do_outputs(self):
