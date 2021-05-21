@@ -80,12 +80,16 @@ class Director:
         """
         trash = self.word.wrong_guesses
         self.console.write(trash)
-        self.keep_playing = self.lives > 0
+        self.keep_playing = self.lives > 0 and self.word.answer != self.word.board
         if self.lives == 0:
             display_parachute = self.jumper.draw_parachute(self.lives)
             self.console.picture(display_parachute)
             display_jumper = self.jumper.draw_jumper(self.lives)
             self.console.picture(display_jumper)
             print("You, you killed him. Sweet motherboard, there are 1s and 0s everywhere!")
-
-        #yo
+        if self.word.answer == self.word.board:
+            display_board = self.word.board
+            self.console.write(display_board)
+            display_jumper = self.jumper.draw_winner()
+            self.console.picture(display_jumper)
+            print("He's alive! All hail the word nerd! Protector of skydiving stick figures!")

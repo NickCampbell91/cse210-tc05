@@ -32,6 +32,12 @@ class Word:
                 self.board[i] = letter
 
     def wrong_letter(self, letter):
+        """Test if the guessed letter is in the answer word. If not, update
+        wrong guessed list and confirm a life should be removed.
+        Args:
+            self (Word): An instance of Word
+            letter (char): The input of the user.
+        """
         if letter not in self.answer:
             self.wrong_guesses.append(letter)
             return True
