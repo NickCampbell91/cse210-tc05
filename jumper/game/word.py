@@ -25,13 +25,14 @@ class Word:
             words = wordlist.read()
             words = words.splitlines()
             for word in words:
-                self.answer = random.choice(words)
-                count = len(self.answer)
+                answer = random.choice(words)
+                count = len(answer)
+                self.answer = [char for char in answer]
                 self.board = []
                 placeholder = "_"
                 self.board.extend(placeholder * count)
         
-        # print(self.answer, count, self.board)
+        #print(self.answer, count, self.board)
 
         self.wrong_guesses = []
 
@@ -57,4 +58,6 @@ class Word:
             self.wrong_guesses.append(letter)
             return True
 
-# Word()
+# word = Word()
+# answer = word.answer
+# print(answer)
