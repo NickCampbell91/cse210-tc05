@@ -49,6 +49,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        display_answer = self.word.answer
+        self.console.write(display_answer)
         display_board = self.word.board
         self.console.write(display_board)
         print()
